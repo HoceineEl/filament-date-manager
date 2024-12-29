@@ -55,7 +55,7 @@ class DateIntervalColumn extends Column
      *
      * @var string
      */
-    public string $dateFormat = 'M j, y';
+    public string $dateFormat = 'M j, Y';
 
     /**
      * Whether dates should be translated.
@@ -312,7 +312,8 @@ class DateIntervalColumn extends Column
     public function getStartDate(): Carbon
     {
         if (! isset($this->startDateUsing)) {
-            $this->startDate = $this->record->{$this->getStartDateColumnName()};
+            $startDate = $this->record->{$this->getStartDateColumnName()};
+            $this->startDate = $startDate instanceof Carbon ? $startDate : Carbon::parse($startDate);
             return $this->startDate;
         }
 
@@ -327,7 +328,8 @@ class DateIntervalColumn extends Column
     public function getEndDate(): Carbon
     {
         if (! isset($this->endDateUsing)) {
-            $this->endDate = $this->record->{$this->getEndDateColumnName()};
+            $endDate = $this->record->{$this->getEndDateColumnName()};
+            $this->endDate = $endDate instanceof Carbon ? $endDate : Carbon::parse($endDate);
             return $this->endDate;
         }
 

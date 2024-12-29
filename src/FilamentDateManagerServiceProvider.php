@@ -23,11 +23,11 @@ class FilamentDateManagerServiceProvider extends PackageServiceProvider
             ->hasViews();
     }
 
-    public function packageBooted()
+    public function packageBooted(): void
     {
+        // Register assets
         FilamentAsset::register([
             Css::make('filament-date-manager', __DIR__ . '/../resources/dist/filament-date-manager.css'),
         ], package: 'hoceineel/filament-date-manager');
-
-    }   
+    }
 }
