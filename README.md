@@ -168,8 +168,11 @@ composer test
         <a href="https://github.com/hoceineel">
             <img src="https://img.shields.io/github/followers/hoceineel?label=Follow&style=for-the-badge&logo=github" alt="GitHub followers">
         </a>
-        <a href="https://twitter.com/hoceineel">
-            <img src="https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=for-the-badge&logo=twitter" alt="Twitter">
+        <a href="https://www.linkedin.com/in/elidrissihoceine?originalSubdomain=ma">
+            <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin" alt="LinkedIn">
+        </a>
+        <a href="https://www.youtube.com/channel/UCiUQAIjSabnUlKyzeGJgyGQ">
+            <img src="https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=for-the-badge&logo=youtube" alt="YouTube">
         </a>
     </p>
 </div>
