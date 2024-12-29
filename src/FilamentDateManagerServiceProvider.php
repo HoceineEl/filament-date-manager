@@ -6,6 +6,8 @@ namespace HoceineEl\FilamentDateManager;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 
 class FilamentDateManagerServiceProvider extends PackageServiceProvider
 {
@@ -23,12 +25,9 @@ class FilamentDateManagerServiceProvider extends PackageServiceProvider
 
     public function packageBooted()
     {
-        // FilamentAsset::register([
-        //     Css::make('filament-fab-css', __DIR__ . '/../resources/dist/filament-fab.css'),
-        // ], package: 'hoceineel/filament-fab');
-        //     Livewire::component(
-        //         name: 'floating-action-button',
-        //         class: FloatingActionButton::class
-        //     );
+        FilamentAsset::register([
+            Css::make('filament-date-manager', __DIR__ . '/../resources/dist/filament-date-manager.css'),
+        ], package: 'hoceineel/filament-date-manager');
+
     }
 }

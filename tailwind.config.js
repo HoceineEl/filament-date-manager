@@ -1,13 +1,21 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: 'selector',
-  content: ["./resources/views/**/*.blade.php", "./src/**/*.php"],
-  safelist: [
-    'bg-gray-200',
-    'bg-white/10',
-  ],
-  theme: {
+const colors = require('tailwindcss/colors')
 
-  },
-  plugins: [require('@tailwindcss/typography')],
-};
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ['./resources/views/**/*.blade.php', './src/**/*.php'],
+    darkMode: 'class',
+    theme: {
+        extend: {
+            colors: {
+                danger: colors.rose,
+                primary: colors.amber,
+                success: colors.green,
+                warning: colors.amber,
+            },
+        },
+    },
+    corePlugins: {
+        preflight: false,
+    },
+    plugins: [],
+}
