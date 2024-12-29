@@ -10,27 +10,27 @@
     $color = $getColor() ?? 'primary';
 
     $bgColor = match($color) {
-        'success' => 'bg-success-300',
-        'info' => 'bg-info-300',
-        'warning' => 'bg-warning-300',
-        'danger' => 'bg-danger-300',
-        'secondary' => 'bg-secondary-300',
-        default => 'bg-'.$color.'-300'
+        'success' => 'bg-success-500',
+        'info' => 'bg-info-500',
+        'warning' => 'bg-warning-500',
+        'danger' => 'bg-danger-500',
+        'secondary' => 'bg-secondary-500',
+        default => 'bg-'.$color.'-500'
     };
 
     $textColor =  match($color) {
-        'success' => 'text-success-300',
-        'info' => 'text-info-300',
-        'warning' => 'text-warning-300',
-        'danger' => 'text-danger-300',
-        'secondary' => 'text-secondary-300',
-        default => 'text-'.$color.'-300'
+        'success' => 'text-success-500',
+        'info' => 'text-info-500',
+        'warning' => 'text-warning-500',
+        'danger' => 'text-danger-500',
+        'secondary' => 'text-secondary-500',
+        default => 'text-'.$color.'-500'
     };
 @endphp
 
 @switch($column->getTheme())
     @case('modern-gradient')
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 ">
             <div class="{{ $bgColor }} w-1 h-14 rounded-full"></div>
             <div class="flex flex-col">
                 <span class="text-sm font-medium">{{ $start }}</span>

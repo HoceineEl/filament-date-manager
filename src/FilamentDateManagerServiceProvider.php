@@ -29,5 +29,5 @@ class FilamentDateManagerServiceProvider extends PackageServiceProvider
             Css::make('filament-date-manager', __DIR__ . '/../resources/dist/filament-date-manager.css'),
         ], package: 'hoceineel/filament-date-manager');
 
-    }
+    }   
 }
