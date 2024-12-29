@@ -59,7 +59,7 @@
     };
 @endphp
 
-@switch($column->getTheme())
+@switch($getTheme())
     @case('modern-gradient')
         <div class="flex items-center gap-2">
             <div class="bg-gradient-to-b {{ $gradientFrom }} {{ $gradientTo }} w-1 h-14 rounded-full"></div>
