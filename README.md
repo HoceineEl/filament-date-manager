@@ -153,7 +153,6 @@ composer test
 ```
 
 ---
-
 ## Developed by
 
 <div align="center">
@@ -162,7 +161,6 @@ composer test
             <img src="https://img.shields.io/badge/Created_by-Hoceine_El_Idrissi-2ea44f?style=for-the-badge&logo=heart" alt="Created by">
         </a>
     </p>
-    
     <p align="center">
         <a href="https://hoceine.com">
             <img src="https://img.shields.io/badge/Website-hoceine.com-blue?style=for-the-badge&logo=google-chrome" alt="Website">
@@ -175,7 +173,6 @@ composer test
         </a>
     </p>
 </div>
-
 
 ---
 
