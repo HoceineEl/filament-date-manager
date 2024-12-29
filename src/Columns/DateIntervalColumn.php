@@ -3,7 +3,9 @@
 namespace HoceineEl\FilamentDateManager\Columns;
 
 use Carbon\Carbon;
+use Filament\Infolists\Components\Concerns\HasColor;
 use Filament\Tables\Columns\Column;
+use HoceineEl\FilamentDateManager\Enums\ColumnTheme;
 
 /**
  * A custom Filament column for displaying date intervals with various visual themes.
@@ -62,6 +64,10 @@ class DateIntervalColumn extends Column
      */
     public bool $translated = false;
 
+    public bool $is_time_interval = false;
+
+    public string $timeFormat = 'h:i A';
+
     /**
      * Custom callback or value for retrieving the start date.
      *
@@ -99,7 +105,7 @@ class DateIntervalColumn extends Column
         $this->name('interval_date');
         $this->label(__('filament-date-manager::translations.date_interval'));
         $this->tooltip(function () {
-            if ($this->getIsDateTranslated()) { 
+            if ($this->getIsDateTranslated()) {
                 return  __('filament-date-manager::translations.from') . '  ' . $this->getStartDate()->translatedFormat($this->getDateFormat()) . '  ' . __('filament-date-manager::translations.to') . '  ' . $this->getEndDate()->translatedFormat($this->getDateFormat());
             }
             return __('filament-date-manager::translations.from') . '  ' . $this->getStartDate()->format($this->getDateFormat()) . '  ' . __('filament-date-manager::translations.to') . '  ' . $this->getEndDate()->format($this->getDateFormat());
@@ -125,9 +131,9 @@ class DateIntervalColumn extends Column
      * @param string $theme The theme name to use
      * @return static
      */
-    public function theme(string $theme): static
+    public function theme(string | ColumnTheme $theme): static
     {
-        $this->theme = $theme;
+        $this->theme = $theme instanceof ColumnTheme ? $theme->value : $theme;
         return $this;
     }
 
@@ -166,12 +172,46 @@ class DateIntervalColumn extends Column
     }
 
     /**
+     * is time interval
+     */
+    public function isTimeInterval(bool $is_time_interval): static
+    {
+        $this->is_time_interval = $is_time_interval;
+        return $this;
+    }
+
+    /**
+     * Set the time format string.
+     *
+     * @param string $timeFormat The time format to use
+     * @return static
+     */
+    public function timeFormat(string $timeFormat): static
+    {
+        $this->timeFormat = $timeFormat;
+        return $this;
+    }
+
+    /**
+     * Get the current time format string.
+     *
+     * @return string
+     */
+    public function getTimeFormat(): string
+    {
+        return $this->timeFormat;
+    }
+
+    /**
      * Get the current date format string.
      *
      * @return string
      */
     public function getDateFormat(): string
     {
+        if ($this->is_time_interval) {
+            return $this->timeFormat;
+        }
         return $this->dateFormat;
     }
 
