@@ -25,6 +25,28 @@ Install the package using Composer:
 composer require hoceineel/filament-date-manager
 ```
 
+Filament v3 recommends developers create a [custom theme](https://filamentphp.com/docs/3.x/upgrade#custom-themes) to better support a plugin's additional Tailwind classes. After you have created your custom theme, add Toggle Icon Columns' views to your new theme's tailwind.config.js file usually located in resources/css/filament/admin/tailwind.config.js:
+
+```php
+content: [
+    ...
+    './vendor/hoceineel/filament-date-manager/**/*.php',
+],
+```
+
+
+Next, compile your theme:
+
+```bash
+npm run build
+```
+
+Finally, run the Filament upgrade command:
+
+```bash
+php artisan filament:upgrade
+```
+
 ---
 
 ## Basic Usage
@@ -158,21 +180,21 @@ composer test
 <div align="center">
     <p align="center">
         <a href="https://hoceine.com">
-            <img src="https://img.shields.io/badge/Created_by-Hoceine_El_Idrissi-2ea44f?style=for-the-badge&logo=heart" alt="Created by">
+            <img src="https://img.shields.io/badge/Created_by-Hoceine_El_Idrissi-2ea44f?style=for-the-badge&logo=heart" alt="Hoceine El Idrissi - Created by">
         </a>
     </p>
     <p align="center">
         <a href="https://hoceine.com">
-            <img src="https://img.shields.io/badge/Website-hoceine.com-blue?style=for-the-badge&logo=google-chrome" alt="Website">
+            <img src="https://img.shields.io/badge/Website-hoceine.com-blue?style=for-the-badge&logo=google-chrome" alt="Hoceine El Idrissi - Portfolio Website">
         </a>
         <a href="https://github.com/hoceineel">
-            <img src="https://img.shields.io/github/followers/hoceineel?label=Follow&style=for-the-badge&logo=github" alt="GitHub followers">
+            <img src="https://img.shields.io/github/followers/hoceineel?label=Follow&style=for-the-badge&logo=github" alt="Hoceine El Idrissi - GitHub">
         </a>
         <a href="https://www.linkedin.com/in/elidrissihoceine?originalSubdomain=ma">
-            <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin" alt="LinkedIn">
+            <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin" alt="Hoceine El Idrissi - LinkedIn">
         </a>
         <a href="https://www.youtube.com/channel/UCiUQAIjSabnUlKyzeGJgyGQ">
-            <img src="https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=for-the-badge&logo=youtube" alt="YouTube">
+            <img src="https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=for-the-badge&logo=youtube" alt="Hoceine El Idrissi - YouTube">
         </a>
     </p>
 </div>

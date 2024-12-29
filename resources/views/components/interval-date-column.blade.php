@@ -26,6 +26,15 @@
         'secondary' => 'text-secondary-500',
         default => 'text-'.$color.'-500'
     };
+
+    $borderColor = match($color) {
+        'success' => 'border-success-500',
+        'info' => 'border-info-500',
+        'warning' => 'border-warning-500',
+        'danger' => 'border-danger-500',
+        'secondary' => 'border-secondary-500',
+        default => 'border-'.$color.'-500'
+    };
 @endphp
 
 @switch($column->getTheme())
@@ -83,10 +92,11 @@
                 <span class="text-sm">{{ $end }}</span>
             </div>
         </div>
+        
         @break
 
     @case('minimalist-border')
-        <div class="border-r-2 {{ $bgColor }} pr-2 py-1">
+        <div class="border-r-2 border-{{ $color }} pr-2 py-1">
             <div class="flex flex-col">
                 <span class="text-sm">{{ $start }}</span>
                 <span class="text-sm">{{ $end }}</span>
@@ -126,16 +136,7 @@
         </div>
         @break
 
-    @case('basic-label')
-        <div class="inline-flex flex-col">
-            <div class="text-sm">
-                <span class="font-medium">{{ $start }}</span>
-                <span class="text-{{ $colorClass }}-500 mx-1">{{ __('filament-date-manager::translations.to') }}</span>
-                <span class="font-medium">{{ $end }}</span>
-            </div>
-        </div>
-        @break
-
+  
     @default
         <div class="inline-flex items-center gap-2 px-3 py-1.5 text-sm">
             <span class="font-medium">{{ $start }}</span>
