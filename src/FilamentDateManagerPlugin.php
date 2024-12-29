@@ -1,12 +1,10 @@
 <?php
 
-namespace HoceineEl\Fab;
+namespace HoceineEl\FilamentDateManager;
 
 use Filament\Panel;
 use Filament\Contracts\Plugin;
-use Filament\View\PanelsRenderHook;
-use HoceineEl\Fab\Concerns\HasRenderHooksScopes;
-use Illuminate\Support\Facades\Blade;
+
 
 
 class FilamentDateManagerPlugin implements Plugin
