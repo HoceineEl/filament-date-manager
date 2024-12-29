@@ -1,0 +1,30 @@
+{
+    "name": "hoceineel/filament-date-manager",
+    "description": "A Filament plugin that provides a date manager components like table columns, filters, etc.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "HoceineEl\\FilamentDateManager\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hoceine El Idrissi",
+            "email": "contact@hoceine.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "filament/support": "^3.0",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.17.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HoceineEl\\FilamentDateManager\\FilamentDateManagerServiceProvider"
+            ]
+        }
+    }
+}
