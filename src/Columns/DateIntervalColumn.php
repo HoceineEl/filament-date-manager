@@ -174,7 +174,7 @@ class DateIntervalColumn extends Column
     /**
      * is time interval
      */
-    public function isTimeInterval(bool $is_time_interval): static
+    public function isTimeInterval(bool $is_time_interval = true): static
     {
         $this->is_time_interval = $is_time_interval;
         return $this;
