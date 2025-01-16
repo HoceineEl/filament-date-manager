@@ -30,8 +30,10 @@ class DateIntervalColumn extends Column
         });
 
         // Make column sortable by start date (primary) and end date (secondary)
-        $this->sortable([$this->startDateColumnName, $this->endDateColumnName]);
-
+        $this->sortable(query: function (Builder $query, string $direction) {
+            return $query->orderBy($this->startDateColumnName, $direction)->orderBy($this->endDateColumnName, $direction);
+        });
+        
         $this->tooltip(function () {
             if ($this->getIsDateTranslated()) {
                 return  __('filament-date-manager::translations.from') . '  ' . $this->getStartDate()->translatedFormat($this->getDateFormat()) . '  ' . __('filament-date-manager::translations.to') . '  ' . $this->getEndDate()->translatedFormat($this->getDateFormat());
