@@ -19,7 +19,7 @@ trait CanBeFormatted
     protected \Closure | string | Carbon | null $startDateUsing = null;
     protected \Closure | string | Carbon | null $endDateUsing = null;
 
-   
+
 
     public function color(string $color): static
     {
@@ -91,24 +91,33 @@ trait CanBeFormatted
     {
         return $this->translated;
     }
-    public function getStartDate(): Carbon
+    public function getStartDate(): ?Carbon
     {
         if (!isset($this->startDateUsing)) {
             $startDate = $this->getRecord()->{$this->startDateColumnName};
+
+            if (is_null($startDate)) {
+                return null;
+            }
+
             return $startDate instanceof Carbon ? $startDate : Carbon::parse($startDate);
         }
 
         return $this->evaluate($this->startDateUsing);
     }
 
-    public function getEndDate(): Carbon
+    public function getEndDate(): ?Carbon
     {
         if (!isset($this->endDateUsing)) {
             $endDate = $this->getRecord()->{$this->endDateColumnName};
+
+            if (is_null($endDate)) {
+                return null;
+            }
+
             return $endDate instanceof Carbon ? $endDate : Carbon::parse($endDate);
         }
 
         return $this->evaluate($this->endDateUsing);
     }
- 
 }

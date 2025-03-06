@@ -7,6 +7,7 @@ use Filament\Tables\Columns\Column;
 use HoceineEl\FilamentDateManager\Concerns\CanBeFormatted;
 use HoceineEl\FilamentDateManager\Concerns\HasThemes;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Lang;
 
 class DateIntervalColumn extends Column
 {
@@ -18,7 +19,7 @@ class DateIntervalColumn extends Column
     {
         parent::setUp();
         $this->name('interval_date');
-        $this->label(__('filament-date-manager::translations.date_interval'));
+        $this->label(Lang::get('filament-date-manager::translations.date_interval'));
 
         // Make column searchable on both start and end dates
         $this->searchable(query: function (Builder $query, string $search): Builder {
@@ -33,12 +34,25 @@ class DateIntervalColumn extends Column
         $this->sortable(query: function (Builder $query, string $direction) {
             return $query->orderBy($this->startDateColumnName, $direction)->orderBy($this->endDateColumnName, $direction);
         });
-        
+
         $this->tooltip(function () {
-            if ($this->getIsDateTranslated()) {
-                return  __('filament-date-manager::translations.from') . '  ' . $this->getStartDate()->translatedFormat($this->getDateFormat()) . '  ' . __('filament-date-manager::translations.to') . '  ' . $this->getEndDate()->translatedFormat($this->getDateFormat());
-            }
-            return __('filament-date-manager::translations.from') . '  ' . $this->getStartDate()->format($this->getDateFormat()) . '  ' . __('filament-date-manager::translations.to') . '  ' . $this->getEndDate()->format($this->getDateFormat());
+            $startDate = $this->getStartDate();
+            $endDate = $this->getEndDate();
+
+            $startText = $startDate
+                ? ($this->getIsDateTranslated()
+                    ? $startDate->translatedFormat($this->getDateFormat())
+                    : $startDate->format($this->getDateFormat()))
+                : Lang::get('filament-date-manager::translations.not_defined');
+
+            $endText = $endDate
+                ? ($this->getIsDateTranslated()
+                    ? $endDate->translatedFormat($this->getDateFormat())
+                    : $endDate->format($this->getDateFormat()))
+                : Lang::get('filament-date-manager::translations.open_ended');
+
+            return Lang::get('filament-date-manager::translations.from') . '  ' . $startText . '  ' .
+                Lang::get('filament-date-manager::translations.to') . '  ' . $endText;
         });
     }
 }
