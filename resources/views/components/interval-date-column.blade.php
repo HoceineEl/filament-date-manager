@@ -2,20 +2,20 @@
     $startDate = $getStartDate();
     $endDate = $getEndDate();
 
-    if ($startDate) {
+    if (is_null($startDate)) {
+        $start = __('filament-date-manager::translations.not_defined');
+    } else {
         $start = $getIsDateTranslated()
             ? $startDate->translatedFormat($getDateFormat())
             : $startDate->format($getDateFormat());
-    } else {
-        $start = __('filament-date-manager::translations.not_defined');
     }
 
-    if ($endDate) {
+    if (is_null($endDate)) {
+        $end = __('filament-date-manager::translations.open_ended');
+    } else {
         $end = $getIsDateTranslated()
             ? $endDate->translatedFormat($getDateFormat())
             : $endDate->format($getDateFormat());
-    } else {
-        $end = __('filament-date-manager::translations.open_ended');
     }
 
     $color = $getColor() ?? 'primary';
