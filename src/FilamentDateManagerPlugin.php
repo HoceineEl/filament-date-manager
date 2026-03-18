@@ -9,7 +9,7 @@ use Filament\Contracts\Plugin;
 
 class FilamentDateManagerPlugin implements Plugin
 {
-    public static function make()
+    public static function make(): static
     {
         return app(static::class);
     }
