@@ -2,6 +2,7 @@
 
 namespace HoceineEl\FilamentDateManager\Concerns;
 
+use Closure;
 use Carbon\Carbon;
 use HoceineEl\FilamentDateManager\Enums\ColumnTheme;
 
@@ -16,8 +17,8 @@ trait CanBeFormatted
     protected string | Carbon $startDateColumnName = 'start_date';
     protected string | Carbon $endDateColumnName = 'end_date';
 
-    protected \Closure | string | Carbon | null $startDateUsing = null;
-    protected \Closure | string | Carbon | null $endDateUsing = null;
+    protected Closure | string | Carbon | null $startDateUsing = null;
+    protected Closure | string | Carbon | null $endDateUsing = null;
 
 
 
@@ -45,7 +46,7 @@ trait CanBeFormatted
         return $this;
     }
 
-    public function translated(bool | \Closure $translated = true): static
+    public function translated(bool | Closure $translated = true): static
     {
         $this->translated = $this->evaluate($translated);
         return $this;
@@ -63,13 +64,13 @@ trait CanBeFormatted
         return $this;
     }
 
-    public function getStartDateUsing(\Closure | string | Carbon $startDate): static
+    public function getStartDateUsing(Closure | string | Carbon $startDate): static
     {
         $this->startDateUsing = $startDate;
         return $this;
     }
 
-    public function getEndDateUsing(\Closure | string | Carbon $endDate): static
+    public function getEndDateUsing(Closure | string | Carbon $endDate): static
     {
         $this->endDateUsing = $endDate;
         return $this;
