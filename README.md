@@ -201,6 +201,18 @@ composer test
 
 ---
 
+## More from Hoceine
+
+Paid packages for Filament 4 and 5 by the same author:
+
+<table>
+<tr>
+<td width="33%" valign="top"><a href="https://filamentcraft.dev?ref=date-manager"><img src="https://raw.githubusercontent.com/hoceineel/filament-date-manager/main/docs/images/more/filamentcraft.jpg" alt="FilamentCraft"></a><br><b><a href="https://filamentcraft.dev?ref=date-manager">FilamentCraft</a></b><br>A visual website builder inside your Filament panel: drag sections onto a live canvas, edit against a preview, publish.</td>
+<td width="33%" valign="top"><a href="https://media-library.hoceine.com?ref=date-manager"><img src="https://raw.githubusercontent.com/hoceineel/filament-date-manager/main/docs/images/more/media-library-pro.jpg" alt="Media Library Pro"></a><br><b><a href="https://media-library.hoceine.com?ref=date-manager">Media Library Pro</a></b><br>One shared media library: folders, tags, focal points, chunked uploads, duplicate detection and usage tracking.</td>
+<td width="33%" valign="top"><a href="https://scheduler-pro.hoceine.com?ref=date-manager"><img src="https://raw.githubusercontent.com/hoceineel/filament-date-manager/main/docs/images/more/scheduler-pro.jpg" alt="Scheduler Pro"></a><br><b><a href="https://scheduler-pro.hoceine.com?ref=date-manager">Scheduler Pro</a></b><br>Resource timelines, Gantt with dependencies, availability-aware booking, recurring events and Kanban boards.</td>
+</tr>
+</table>
+
 ## Contributing
 
 Feel free to submit issues or pull requests to improve this package. Follow the contribution guidelines [here](https://github.com/hoceineel/filament-date-manager).
